@@ -12,8 +12,11 @@
     margin-top: 20px;
     align-self: baseline;
     color: #9E9E9E;
+    font-size: 15px;
+    line-height: 145%;
+    width: 324px;
   }
-  .login-input {
+  .form-input {
     margin-top: 4px;
     color: #9D9D9D;
     font-family: 'Lato', sans-serif;
@@ -25,23 +28,7 @@
     border-radius: 5px;
     outline: none;
   }
-  .password-container {
-    position: relative;
-  }
-  .visibility-button {
-    cursor: pointer;
-    position: absolute;
-    right: 16px;
-    top: 13px;
-    padding: 0;
-    background-image: url('../../images/Visibility_off.png');
-    box-sizing:content-box;
-    height: 24px;
-    width: 24px;
-    border: none;
-    background-color: transparent;
-  }
-  .login-button {
+  .reset-button {
     margin-top: 40px;
     color: #D6D6D6;
     font-family: 'Lato', sans-serif;
@@ -51,18 +38,9 @@
     border: 0;
     border-radius: 5px;
   }
-  .reset-link {
-    color: #CECECE;
-    text-decoration: none;
-    margin-top: 24px;
-  }
 }
 
 ::placeholder {
   color: #9D9D9D;
   opacity: 1;
-}
-
-.hidden {
-  display: none;
 }

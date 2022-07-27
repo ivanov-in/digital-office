@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import "./LoginPage.scss";
-import LoginHeader from "../components/login-header/LoginHeader";
-import LoginForm from "../components/login-inputs/LoginForm";
-import footerImage from "../images/pattern.png";
+import LoginHeader from "../../components/login-header/LoginHeader";
+import LoginForm from "../../components/login-form/LoginForm";
+import footerImage from "../../images/pattern.png";
 
 class LoginPage extends Component {
   render() {
