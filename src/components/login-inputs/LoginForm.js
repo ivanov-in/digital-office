@@ -22,7 +22,7 @@ class LoginInputs extends Component {
           </p>
           <input className="login-input" placeholder="Логин или e-mail"></input>
           <p className="input-caption">Введи пароль из письма</p>
-          <div>
+          <div className='password-container'>
             <input className="login-input" placeholder="Пароль"></input>
             <button className="visibility-button"></button>
           </div>

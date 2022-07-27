@@ -25,9 +25,17 @@
     border-radius: 5px;
     outline: none;
   }
+  .password-container {
+    position: relative;
+  }
   .visibility-button {
+    cursor: pointer;
     position: absolute;
+    right: 16px;
+    top: 13px;
+    padding: 0;
     background-image: url('../../images/Visibility_off.png');
+    box-sizing:content-box;
     height: 24px;
     width: 24px;
     border: none;
