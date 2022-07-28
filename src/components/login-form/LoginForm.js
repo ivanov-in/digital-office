@@ -20,7 +20,7 @@ class LoginForm extends Component {
               ? "Придумай логин"
               : "Введи логин или корпоративный e-mail"}
           </p>
-          <input className="form-input" placeholder="Логин или e-mail"></input>
+          <input className="form-input" placeholder={isAuthFirst ? "Новый логин" : "Логин или e-mail"}></input>
           <p className="input-caption">Введи пароль из письма</p>
           <div className='password-container'>
             <input className="form-input" placeholder="Пароль"></input>
