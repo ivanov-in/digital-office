@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  .recovery-form {
+    display: flex;
+  }
   .footer-image {
     position: absolute;
     bottom: 0;
