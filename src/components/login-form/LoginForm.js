@@ -10,13 +10,13 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const handleClickLogin = async () => {
-      const res = await auth(login, password);
+    const res = await auth(login, password);
 
-      if (res.status === 200) {
-        console.log(res);
-      } else if (res.status === 404) {
-        setAuthError(true);
-      }
+    if (res.status === 200) {
+      console.log(res);
+    } else if (res.status === 404) {
+      setAuthError(true);
+    }
   };
 
   return (
@@ -43,7 +43,11 @@ const LoginForm = () => {
           ></input>
           <button className="visibility-button"></button>
         </div>
-        <button className="login-button" onClick={handleClickLogin} type="button">
+        <button
+          className="login-button"
+          onClick={handleClickLogin}
+          type="button"
+        >
           Войти
         </button>
         <Link

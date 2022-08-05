@@ -6,8 +6,10 @@ import "./RecoveryForm.scss";
 const RecoveryForm = () => {
   const [isPasswordChangeSuccess, setIsPasswordChangeSuccess] = useState(false);
   const [showTooltip, setShowTootip] = useState(false);
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [secretPassword, setSecretPassword] = "";
   const [passwordValidation, setPasswordValidation] = useState({
     noSpaceSymbol: true,
   });
@@ -47,7 +49,12 @@ const RecoveryForm = () => {
     <div>
       <form className={isPasswordChangeSuccess ? "hidden" : "form-container"}>
         <p className="input-caption">Логин или e-mail</p>
-        <input className="form-input" placeholder="Логин или e-mail"></input>
+        <input
+          className="form-input"
+          placeholder="Логин или e-mail"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        ></input>
         <p className="input-caption">Введи новый пароль</p>
         <div className="password-container">
           <input
@@ -71,7 +78,12 @@ const RecoveryForm = () => {
           <button className="visibility-button"></button>
         </div>
         <p className="input-caption">Введи секретный пароль</p>
-        <input className="form-input" placeholder="Секретный пароль"></input>
+        <input
+          className="form-input"
+          placeholder="Секретный пароль"
+          value={secretPassword}
+          onChange={(e) => setSecretPassword(e.target.value)}
+        ></input>
         <button className="login-button">Сменить пароль</button>
       </form>
       <div
