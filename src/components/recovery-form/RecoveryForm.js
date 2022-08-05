@@ -7,12 +7,21 @@ const RecoveryForm = () => {
   const [isPasswordChangeSuccess, setIsPasswordChangeSuccess] = useState(false);
   const [showTooltip, setShowTootip] = useState(false);
   const [login, setLogin] = useState("");
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [secretPassword, setSecretPassword] = "";
   const [passwordValidation, setPasswordValidation] = useState({
     noSpaceSymbol: true,
   });
+
+  const togglePasswordVisibility = () => {
+    if (isPasswordShow) {
+      setIsPasswordShow(false);
+    } else {
+      setIsPasswordShow(true);
+    }
+  };
 
   const checkPassword = (e) => {
     setPassword(e.target.value);
@@ -60,22 +69,32 @@ const RecoveryForm = () => {
           <input
             className="form-input"
             placeholder="Новый пароль"
+            type={isPasswordShow ? "" : "password"}
             onFocus={() => setShowTootip(true)}
             onBlur={() => setShowTootip(false)}
             value={password}
             onChange={(e) => checkPassword(e)}
           ></input>
-          <button className="visibility-button"></button>
+          <button
+            className="visibility-button"
+            type="button"
+            onClick={togglePasswordVisibility}
+          ></button>
         </div>
         <p className="input-caption">Повтори новый пароль</p>
         <div className="password-container">
           <input
             className="form-input"
             placeholder="Новый пароль"
+            type={isPasswordShow ? "" : "password"}
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
           ></input>
-          <button className="visibility-button"></button>
+          <button
+            className="visibility-button"
+            type="button"
+            onClick={togglePasswordVisibility}
+          ></button>
         </div>
         <p className="input-caption">Введи секретный пароль</p>
         <input

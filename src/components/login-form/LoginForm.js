@@ -5,6 +5,7 @@ import "./LoginForm.scss";
 
 const LoginForm = () => {
   const [isAuthFirst, setIsAuthFirst] = useState(false);
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
   const [AuthError, setAuthError] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +17,14 @@ const LoginForm = () => {
       console.log(res);
     } else if (res.status === 404) {
       setAuthError(true);
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    if (isPasswordShow) {
+      setIsPasswordShow(false);
+    } else {
+      setIsPasswordShow(true);
     }
   };
 
@@ -38,10 +47,15 @@ const LoginForm = () => {
           <input
             className="form-input"
             placeholder="Пароль"
+            type={isPasswordShow ? "" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <button className="visibility-button"></button>
+          <button
+            className="visibility-button"
+            type="button"
+            onClick={togglePasswordVisibility}
+          ></button>
         </div>
         <button
           className="login-button"
