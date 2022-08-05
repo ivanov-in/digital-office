@@ -7,8 +7,8 @@ import { RecoveryPage } from "./pages/RecoveryPage/RecoveryPage";
 function App() {
   return (
     <Routes>
-      <Route path="/auth" element={<LoginPage />} />
-      <Route path="/auth/forgot" element={<ForgotPage />} />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/forgot" element={<ForgotPage />} />
       <Route path="/recovery" element={<RecoveryPage />} />
     </Routes>
   );

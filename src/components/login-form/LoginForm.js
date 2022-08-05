@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { login } from "../../api/login";
+import { auth } from "../../api/login";
 import "./LoginForm.scss";
 
 const LoginForm = () => {
   const [isAuthFirst, setIsAuthFirst] = useState(false);
+  const [AuthError, setAuthError] = useState(false);
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    return login();
+  const handleClickLogin = async () => {
+      const res = await auth(login, password);
+
+      if (res.status === 200) {
+        console.log(res);
+      } else if (res.status === 404) {
+        setAuthError(true);
+      }
   };
 
   return (
@@ -22,18 +30,27 @@ const LoginForm = () => {
         <input
           className="form-input"
           placeholder={isAuthFirst ? "Новый логин" : "Логин или e-mail"}
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
         ></input>
         <p className="input-caption">Введи пароль из письма</p>
         <div className="password-container">
-          <input className="form-input" placeholder="Пароль"></input>
+          <input
+            className="form-input"
+            placeholder="Пароль"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
           <button className="visibility-button"></button>
         </div>
-        <button className="login-button" onClick={handleLogin}>
+        <button className="login-button" onClick={handleClickLogin} type="button">
           Войти
         </button>
         <Link
-          className={isAuthFirst ? "hidden" : "forgot-link"}
-          to="/auth/forgot"
+          className={`${isAuthFirst ? "hidden" : "forgot-link"} ${
+            AuthError ? "error" : ""
+          }`}
+          to="/forgot"
         >
           О нет! Я забыл пароль
         </Link>
